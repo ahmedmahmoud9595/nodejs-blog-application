@@ -27,11 +27,15 @@ app.use("/posts", postsRoute);
 app.use("/groups", groupsRoute);
 app.use("/auth", authRoute);
 
-app.use(errorMiddleware);
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 app.use(notFoundMiddleware);
+app.use(errorMiddleware);
 
 // app.listen(process.env.PORT, () => {
 //   console.log("Server running on port 5001");
 // });
 
-module.exports = app;
+export default app;
